@@ -85,44 +85,53 @@
         <p>Fyll i formuläret nedan så återkommer vi till dig så snart som möjligt. Remiss krävs inte.</p>
       </div>
 
-      <form id="booking-form" action="#" method="post">
+      <form id="booking-form" action="https://formspree.io/f/xpqkddrz" method="POST">
+        <input type="hidden" name="_subject" value="Ny bokningsförfrågan – Idrottskadespecialisten">
         <div class="form-group">
           <label for="namn">Namn</label>
-          <input type="text" id="namn" name="namn" placeholder="Ditt namn">
+          <input type="text" id="namn" name="namn" placeholder="Ditt namn" data-fs-field>
+          <span data-fs-error="namn"></span>
         </div>
         <div class="form-group">
           <label for="email">E-post</label>
-          <input type="email" id="email" name="email" placeholder="din@epost.se" required>
+          <input type="email" id="email" name="email" placeholder="din@epost.se" required data-fs-field>
+          <span data-fs-error="email"></span>
         </div>
         <div class="form-group">
           <label for="telefon">Mobiltelefon</label>
-          <input type="tel" id="telefon" name="telefon" placeholder="070-000 00 00">
-        </div>
-        <div class="form-group">
-          <label for="personnummer">Personnummer</label>
-          <input type="text" id="personnummer" name="personnummer" placeholder="ÅÅÅÅMMDD-XXXX">
+          <input type="tel" id="telefon" name="telefon" placeholder="070-000 00 00" data-fs-field>
+          <span data-fs-error="telefon"></span>
         </div>
         <div class="form-group">
           <label for="vardcentral">Vårdcentral</label>
-          <input type="text" id="vardcentral" name="vardcentral" placeholder="Din vårdcentral">
+          <input type="text" id="vardcentral" name="vardcentral" placeholder="Din vårdcentral" data-fs-field>
+          <span data-fs-error="vardcentral"></span>
         </div>
         <div class="form-group">
           <label for="fysioterapeut">Önskad fysioterapeut</label>
-          <select id="fysioterapeut" name="fysioterapeut">
+          <select id="fysioterapeut" name="fysioterapeut" data-fs-field>
             <option value="" selected>Ej vald</option>
             <option value="beatrice">Beatrice</option>
             <option value="tobias">Tobias</option>
           </select>
+          <span data-fs-error="fysioterapeut"></span>
         </div>
         <div class="form-group">
           <label for="meddelande">Meddelande</label>
-          <textarea id="meddelande" name="meddelande" placeholder="Beskriv gärna dina besvär"></textarea>
+          <textarea id="meddelande" name="meddelande" placeholder="Beskriv gärna dina besvär" data-fs-field></textarea>
+          <span data-fs-error="meddelande"></span>
+        </div>
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" name="gdpr_consent" value="yes" required>
+            Jag samtycker till att Idrottskadespecialisten behandlar mina personuppgifter för att hantera denna bokningsförfrågan. <a href="/idspec/integritetspolicy/">Läs vår integritetspolicy.</a>
+          </label>
         </div>
         <div class="form-submit">
-          <button type="submit" class="btn btn-primary">Skicka förfrågan</button>
+          <button type="submit" class="btn btn-primary" data-fs-submit-btn>Skicka förfrågan</button>
         </div>
-        <div id="form-success" class="form-message success">Tack! Vi återkommer till dig inom kort.</div>
-        <div id="form-error" class="form-message error">Något gick fel. Försök igen eller ring oss på 060-172595.</div>
+        <div class="form-message success" data-fs-success>Tack! Vi återkommer till dig inom kort.</div>
+        <div class="form-message error" data-fs-error>Något gick fel. Försök igen eller ring oss på 060-172595.</div>
       </form>
 
       <p>Vi svarar normalt inom 1–2 arbetsdagar.</p>
@@ -181,10 +190,15 @@
   </div>
   <div class="footer-bottom">
     <span>&copy; 2025 Idrottskadespecialisten &mdash; Ego Storgatan 51, 852 30 Sundsvall</span>
-    <span><a href="tel:060172595">060-172595</a> &nbsp;&middot;&nbsp; <a href="mailto:rollne@idrottskadespecialisten.se">rollne@idrottskadespecialisten.se</a></span>
+    <span><a href="tel:060172595">060-172595</a> &nbsp;&middot;&nbsp; <a href="mailto:rollne@idrottskadespecialisten.se">rollne@idrottskadespecialisten.se</a> &nbsp;&middot;&nbsp; <a href="/idspec/integritetspolicy/">Integritetspolicy</a></span>
   </div>
 </footer>
 
 <script src="../js/main.js"></script>
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#booking-form', formId: 'xpqkddrz' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>

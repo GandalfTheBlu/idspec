@@ -942,6 +942,38 @@ main {
   margin-top: 8px;
 }
 
+/* Checkbox consent */
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  cursor: pointer;
+  max-width: 480px;
+}
+
+.checkbox-label input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--navy);
+  cursor: pointer;
+}
+
+/* Formspree inline field errors */
+[data-fs-error] {
+  display: block;
+  font-size: 13px;
+  color: #721c24;
+  margin-top: 4px;
+}
+
+[data-fs-error]:empty {
+  display: none;
+}
+
 /* Success / error messages */
 .form-message {
   padding: 16px 20px;
